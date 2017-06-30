@@ -41,7 +41,7 @@ function build_srpms()
 function build_rpms()
 {
     for x in ${CHROOTS}; do
-        mock -r ${x} rebuild rpmbuild/SRPMS/*.src.rpm
+        mock -r ${x} rebuild ./rpmbuild/SRPMS/*.src.rpm
     done
 }
 
