@@ -4,14 +4,14 @@ CHROOTS="fedora-25-x86_64 fedora-26-x86_64 epel-6-x86_64 epel-7-x86_64"
 
 function clean()
 {
-    rm -rf rpmbuild/
-    rm -rf stage/
+    rm -rf ${WORKSPACE}/rpmbuild/
+    rm -rf ${WORKSPACE}/stage/
 }
 
 function prep()
 {
-    mkdir -p rpmbuild/SPECS
-    mkdir -p rpmbuild/SOURCES
+    mkdir -p ${WORKSPACE}/rpmbuild/SPECS
+    mkdir -p ${WORKSPACE}/rpmbuild/SOURCES
     for x in ${CHROOTS}; do
         case ${x} in 
             fedora-25-x86_64)
@@ -27,21 +27,21 @@ function prep()
                 TGT="el7"
                 ;;
         esac
-        mkdir -p stage/${TGT}
+        mkdir -p ${WORKSPACE}/stage/${TGT}
     done
 }
 
 function build_srpms()
 {
-    cp discord.spec rpmbuild/SPECS/
-    spectool -g -R rpmbuild/SPECS/discord.spec
-    rpmbuild -bs rpmbuild/SPECS/discord.spec
+    cp discord.spec ${WORKSPACE}/rpmbuild/SPECS/
+    spectool -g -R ${WORKSPACE}/rpmbuild/SPECS/discord.spec
+    rpmbuild -bs ${WORKSPACE}/rpmbuild/SPECS/discord.spec
 }
 
 function build_rpms()
 {
     for x in ${CHROOTS}; do
-        mock -r ${x} rebuild rpmbuild/SRPMS/*.src.rpm
+        mock -r ${x} rebuild ${WORKSPACE}/rpmbuild/SRPMS/*.src.rpm
     done
 }
 
@@ -62,7 +62,7 @@ function stage_rpms()
                 TGT="el7"
                 ;;
         esac
-        cp /var/lib/mock/${x}/result/*.rpm stage/${TGT}/
+        cp /var/lib/mock/${x}/result/*.rpm ${WORKSPACE}/stage/${TGT}/
     done
 }
 
