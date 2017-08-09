@@ -1,5 +1,5 @@
 Name:           discord
-Version:        0.0.1
+Version:        0.0.2
 Release:        1%{?dist}
 Summary:        All-in-one voice and text chat for gamers
 
@@ -44,5 +44,7 @@ install -m 755 discord.desktop %{buildroot}/%{_datadir}/applications/
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Wed Aug 09 2017 Sean Callaway <seancallaway@fedoraproject.org> 0.0.2-1
+- Updated build for version 0.0.2
 * Thu Jan 12 2017 Sean Callaway <seancallaway@fedoraproject.org> 0.0.1-1
 - Initial build using version 0.0.1
