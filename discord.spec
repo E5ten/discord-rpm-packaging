@@ -9,7 +9,7 @@ Summary:        All-in-one voice and text chat for gamers
 License:        Proprietary
 URL:            https://discordapp.com/
 Source0:        https://dl.discordapp.net/apps/linux/%{version}/%{name}-%{version}.tar.gz
-ExclusiveArch:	x86_64
+ExclusiveArch:  x86_64
 
 BuildRequires:  libXScrnSaver%{_isa}
 BuildRequires:  sed%{_isa}
