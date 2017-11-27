@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-CHROOTS="fedora-25-x86_64 fedora-26-x86_64 epel-6-x86_64 epel-7-x86_64"
+CHROOTS="fedora-27-x86_64 fedora-26-x86_64 epel-6-x86_64 epel-7-x86_64"
 
 function clean()
 {
@@ -14,8 +14,8 @@ function prep()
     mkdir -p ${WORKSPACE}/rpmbuild/SOURCES
     for x in ${CHROOTS}; do
         case ${x} in 
-            fedora-25-x86_64)
-                TGT="fc25"
+            fedora-27-x86_64)
+                TGT="fc27"
                 ;;
             fedora-26-x86_64)
                 TGT="fc26"
@@ -40,17 +40,17 @@ function build_srpms()
 
 function build_rpms()
 {
-    for x in ${CHROOTS}; do
-        mock -r ${x} rebuild ./rpmbuild/SRPMS/*.src.rpm
-    done
+for x in ${CHROOTS}; do
+    mock -r ${x} rebuild /rpmbuild/SRPMS/*.src.rpm
+done
 }
 
 function stage_rpms()
 {
     for x in ${CHROOTS}; do
         case ${x} in 
-            fedora-25-x86_64)
-                TGT="fc25"
+            fedora-27-x86_64)
+                TGT="fc27"
                 ;;
             fedora-26-x86_64)
                 TGT="fc26"
@@ -70,3 +70,4 @@ clean
 prep
 build_srpms
 build_rpms
+stage_rpms
