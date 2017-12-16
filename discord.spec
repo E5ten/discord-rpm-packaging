@@ -1,18 +1,23 @@
 %global         debug_package %{nil}
 %global         __strip /bin/true
+%global         __requires_exclude libffmpeg.so
 
 Name:           discord
 Version:        0.0.3
 Release:        1%{?dist}
 Summary:        All-in-one voice and text chat for gamers
 
+# License Information: https://bugzilla.rpmfusion.org/show_bug.cgi?id=4441#c14
 License:        Proprietary
 URL:            https://discordapp.com/
 Source0:        https://dl.discordapp.net/apps/linux/%{version}/%{name}-%{version}.tar.gz
 ExclusiveArch:  x86_64
 
+<<<<<<< HEAD
+=======
 AutoReqProv:	No
 
+>>>>>>> ce63ddbd58c4f400b6426b087a768e34d0f56111
 BuildRequires:  desktop-file-utils%{_isa}
 BuildRequires:  sed%{_isa}
 
@@ -37,13 +42,18 @@ gaming communities.
 %build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT/%{_bindir}/
-mkdir -p $RPM_BUILD_ROOT/%{_libdir}/discord
-mkdir -p $RPM_BUILD_ROOT/%{_datadir}/applications
+rm -rf %{buildroot}
+mkdir -p %{buildroot}/%{_bindir}/
+mkdir -p %{buildroot}/%{_libdir}/discord
+mkdir -p %{buildroot}/%{_datadir}/applications
 
+<<<<<<< HEAD
+cp -r * %{buildroot}/%{_libdir}/discord/
+ln -sf %{_libdir}/discord/Discord %{buildroot}/%{_bindir}/
+=======
 cp -r * $RPM_BUILD_ROOT/%{_libdir}/discord/
 ln -sf %{_libdir}/discord/Discord $RPM_BUILD_ROOT/%{_bindir}/
+>>>>>>> ce63ddbd58c4f400b6426b087a768e34d0f56111
 desktop-file-install                            \
 --set-icon=%{_libdir}/discord/discord.png       \
 --set-key=Exec --set-value=%{_bindir}/Discord   \
