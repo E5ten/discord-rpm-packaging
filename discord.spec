@@ -13,11 +13,6 @@ URL:            https://discordapp.com/
 Source0:        https://dl.discordapp.net/apps/linux/%{version}/%{name}-%{version}.tar.gz
 ExclusiveArch:  x86_64
 
-<<<<<<< HEAD
-=======
-AutoReqProv:	No
-
->>>>>>> ce63ddbd58c4f400b6426b087a768e34d0f56111
 BuildRequires:  desktop-file-utils%{_isa}
 BuildRequires:  sed%{_isa}
 
@@ -47,13 +42,8 @@ mkdir -p %{buildroot}/%{_bindir}/
 mkdir -p %{buildroot}/%{_libdir}/discord
 mkdir -p %{buildroot}/%{_datadir}/applications
 
-<<<<<<< HEAD
 cp -r * %{buildroot}/%{_libdir}/discord/
 ln -sf %{_libdir}/discord/Discord %{buildroot}/%{_bindir}/
-=======
-cp -r * $RPM_BUILD_ROOT/%{_libdir}/discord/
-ln -sf %{_libdir}/discord/Discord $RPM_BUILD_ROOT/%{_bindir}/
->>>>>>> ce63ddbd58c4f400b6426b087a768e34d0f56111
 desktop-file-install                            \
 --set-icon=%{_libdir}/discord/discord.png       \
 --set-key=Exec --set-value=%{_bindir}/Discord   \
