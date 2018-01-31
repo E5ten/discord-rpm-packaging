@@ -3,7 +3,7 @@
 %global         __requires_exclude libffmpeg.so
 
 Name:           discord
-Version:        0.0.3
+Version:        0.0.4
 Release:        1%{?dist}
 Summary:        All-in-one voice and text chat for gamers
 
@@ -28,8 +28,8 @@ Requires:       libappindicator%{_isa}
 Requires:       libcxx%{_isa}
 
 %description
-Linux Release for Discord, a free proprietary VoIP application designed for 
-gaming communities. 
+Linux Release for Discord, a free proprietary VoIP application designed for
+gaming communities.
 
 %prep
 %autosetup -n Discord
@@ -59,6 +59,9 @@ discord.desktop
 
 
 %changelog
+* Wed Jan 31 2018 Sean Callaway <seancallaway@fedoraproject.org> 0.0.4-1
+- Update to 0.0.4
+
 * Tue Dec 12 2017 Sean Callaway <seancallaway@fedoraproject.org> 0.0.3-1
 - Update to 0.0.3
 - Now using desktop-file-install.
