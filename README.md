@@ -1,2 +1,2 @@
 # discord-rpm-packaging
-Uses the CalNet Jenkins server and mock to build RPMs for Discord
+Used for tracking the SPEC file used by [Discord](https://discordapp.com/download) in [RPMFusion](https://admin.rpmfusion.org/pkgdb/package/nonfree/discord/).
